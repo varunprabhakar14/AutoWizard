@@ -1,4 +1,4 @@
-# Build&Price
+# AutoWizard
 
 [Heroku link][heroku]
 
