@@ -1,8 +1,7 @@
 class User < ActiveRecord::Base
-  validates_presence_of :username, uniqueness: true
-  validates_presence_of :password_digest, uniqueness: true
-  validates_presence_of :session_token, uniqueness: true
-  validates :password, length: { minimum: 6, allow_nil: true }
+  validates :username, :session_token, :password_digest, presence: true
+  validates :username, :session_token, uniqueness: true
+  validates :password, length: { minimum: 1, allow_nil: true }
 
   attr_reader :password
   # has_many :cars ?
@@ -10,7 +9,6 @@ class User < ActiveRecord::Base
 
   def self.find_by_credentials(username, password)
     user = User.find_by(username: username)
-
     return nil if user.nil?
     user.is_password?(password) ? user : nil
   end
