@@ -1,20 +1,14 @@
 class User < ActiveRecord::Base
-  validates :username, :session_token, :password_digest, presence: true
-  validates :username, :session_token, uniqueness: true
+  validates :username, :session_token, presence: true
   validates :password, length: { minimum: 1, allow_nil: true }
+  validates :username, uniqueness: true
 
   attr_reader :password
-  # has_many :cars ?
   after_initialize :ensure_session_token
 
-  def self.find_by_credentials(username, password)
-    user = User.find_by(username: username)
-    return nil if user.nil?
-    user.is_password?(password) ? user : nil
-  end
-
-  def is_password?(password)
-    BCrypt::Password.new(self.password_digest).is_password?(password)
+  def self.find_by_credentials(user_params)
+    user = User.find_by_username(user_params[:username])
+    user.try(:is_password?, user_params[:password]) ? user : nil
   end
 
   def password=(password)
@@ -22,15 +16,19 @@ class User < ActiveRecord::Base
     self.password_digest = BCrypt::Password.create(password)
   end
 
-  def reset_session_token!
-    self.session_token = SecureRandom.urlsafe_base64
+  def is_password?(password)
+    BCrypt::Password.new(self.password_digest).is_password?(password)
+  end
+
+  def reset_token!
+    self.session_token = SecureRandom.urlsafe_base64(16)
     self.save!
     self.session_token
   end
 
-  private
+  protected
 
   def ensure_session_token
-    self.session_token ||= SecureRandom.urlsafe_base64
+    self.session_token ||= SecureRandom.urlsafe_base64(16)
   end
 end

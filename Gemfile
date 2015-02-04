@@ -28,6 +28,8 @@ gem 'spring',        group: :development
 
 gem 'newrelic_rpm'
 
+gem 'bootstrap-sass'
+
 group :development do
   gem 'annotate'
   gem 'better_errors'
