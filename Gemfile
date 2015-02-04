@@ -29,19 +29,11 @@ gem 'spring',        group: :development
 gem 'newrelic_rpm'
 
 group :development do
+  gem 'annotate'
   gem 'better_errors'
   gem 'binding_of_caller'
+  gem 'pry-rails'
   gem 'byebug'
-end
-
-group :test do
-  gem 'capybara'
-  gem 'jasmine', "~> 2.0.0.rc4"
-  gem 'rspec-rails', '~> 3.0'
-end
-
-group :development, :test do
-  gem 'launchy'
 end
 
 # Use ActiveModel has_secure_password
