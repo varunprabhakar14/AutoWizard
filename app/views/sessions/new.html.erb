@@ -2,11 +2,17 @@
 
 <form action="/session" method="post">
   <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-  <label>Username<br>
-    <input name="user[username]" type="text"><br>
-  </label><br>
-  <label>Password<br>
-    <input name="user[password]" type="password"><br>
-  </label><br>
+  <div class="form-group">
+    <label>Username<br>
+      <input name="user[username]" type="text"><br>
+    </label>
+  </div>
+
+  <div class="form-group">
+    <label>Password<br>
+      <input name="user[password]" type="password"><br>
+    </label>
+  </div>
+
   <input type="submit" value="Submit" class="btn btn-primary"><br>
 </form>
