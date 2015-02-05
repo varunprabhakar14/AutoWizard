@@ -2,6 +2,6 @@
 
 <ul class="makes-ul">
   <% makes.each(function(make) { %>
-    <li data="<%= make.attributes.name %>"><%= make.attributes.name %></li>
+    <li data-id="<%= make.id %>" data-name="<%= make.attributes.name %>"><%= make.attributes.name %></li>
   <% }) %>
 </ul>

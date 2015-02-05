@@ -1,5 +1,5 @@
 Final.Views.ModelsIndex = Backbone.View.extend({
-  template: JST['models_index'],
+  template: JST['makes_show'],
 
   initialize: function() {
     this.listenTo(this.collection, 'sync', this.render);
