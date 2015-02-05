@@ -1,6 +1,10 @@
 Final.Views.MakesIndex = Backbone.View.extend({
   template: JST['makes_index'],
 
+  events: {
+    'click li': 'selectMake'
+  },
+
   initialize: function() {
     this.listenTo(this.collection, 'sync', this.render);
   },
@@ -9,5 +13,11 @@ Final.Views.MakesIndex = Backbone.View.extend({
     var content = this.template({ makes: this.collection });
     this.$el.html(content);
     return this;
+  },
+
+  selectMake: function(event) {
+    var $target = $(event.currentTarget);
+    $target.val(89);
+    alert($target.val())
   }
 });

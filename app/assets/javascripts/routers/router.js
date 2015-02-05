@@ -4,26 +4,29 @@ Final.Routers.Router = Backbone.Router.extend({
   },
 
   routes: {
-    '':'makeIndex',
-    '':'modelIndex'
+    '':'makesIndex',
+    '/models':'modelsIndex'
   },
 
-  makeIndex: function() {
-    var that = this;
-
-    // Final.Collections.makes.fetch({
-    //   success: function() {
-    //     var view = new Final.Views.MakesIndex({
-    //       collection: Final.Collections.makes
-    //     })
-    //     that.$rootEl.html(view.render().$el);
-    //   }
-    // })
-
+  makesIndex: function() {
     Final.Collections.makes.fetch();
     var view = new Final.Views.MakesIndex({
       collection: Final.Collections.makes
     });
+    this._swapView(view);
+  },
+
+  modelsIndex: function() {
+    Final.Collections.models.fetch();
+    var view = new Final.Views.ModelsIndex({
+      collection: Final.Collections.models
+    });
+    this._swapView(view);
+  },
+
+  _swapView: function(view) {
+    this._currentView && this._currentView.remove();
+    this._currenView = view;
     this.$rootEl.html(view.render().$el);
   }
 })
