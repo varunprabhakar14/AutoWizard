@@ -4,9 +4,9 @@ window.Final = {
   Views: {},
   Routers: {},
   initialize: function() {
+    new Final.Routers.Router({
+      $rootEl : $("#main")
+    });
+    Backbone.history.start();
   }
 };
-
-// $(document).ready(function(){
-//   Final.initialize();
-// });
