@@ -10,28 +10,14 @@ Final.Views.ModelsShow = Backbone.View.extend({
       var styleId = trim.escape('id');
       var $li = $el.find('.' + styleId);
 
-      var Price = Backbone.Model.extend({
-        initialize: function(attributes, options) {
+      var price = new Final.Models.StartingPrice([], {
+        styleId: styleId
+      });
 
-        },
-
-        url: function () {
-          return 'https://api.edmunds.com/v1/api/configurator/default?zip=90019&styleid=' + styleId + '&fmt=json&api_key=u79wmp7tc5htfw2c2m6wfvdm'
-        },
-        toJSON: function () {
-          return _.clone(this.attributes.response);
-        },
-        parse: function(response) {
-          return response.pricingAttributeGroup.attributes.MSRP;
-        }
-      })
-
-      var price = new Price();
       price.fetch({
         success: function() {
           var $price = "<br>Starting at: $" + price.attributes.value;
           $li.append($price);
-          console.log($li.data('price', price.attributes.value))
         }
       });
     });
@@ -41,7 +27,6 @@ Final.Views.ModelsShow = Backbone.View.extend({
     var content = this.template({ trims: this.collection });
     this.$el.html(content);
     this.addStartingPrice(this.$el);
-    debugger
     return this;
   }
 

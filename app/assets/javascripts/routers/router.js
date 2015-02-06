@@ -1,6 +1,10 @@
 Final.Routers.Router = Backbone.Router.extend({
   initialize: function(options) {
     this.$rootEl = options.$rootEl
+    this.panes = {};
+    this.pane1 = options.pane1;
+    this.pane2 = options.pane2;
+    this.pane3 = options.pane3;
   },
 
   routes: {
@@ -14,7 +18,7 @@ Final.Routers.Router = Backbone.Router.extend({
     var view = new Final.Views.MakesIndex({
       collection: Final.Collections.makes
     });
-    this._swapView(view);
+    this._swapPane("pane1", view);
   },
 
   makesShow: function(name) {
@@ -25,7 +29,8 @@ Final.Routers.Router = Backbone.Router.extend({
     var view = new Final.Views.MakesShow({
       collection: carModels
     });
-    this._swapView(view);
+    this.makesIndex();
+    this._swapPane("pane2", view);
   },
 
   modelsShow: function(make, model) {
@@ -37,10 +42,31 @@ Final.Routers.Router = Backbone.Router.extend({
     var view = new Final.Views.ModelsShow({
       collection: carTrims
     })
-    this._swapView(view);
+    this.makesShow(make);
+    this._swapPane("pane3", view);
+  },
+
+  features: function() {
+    //swapview
+  },
+
+  _swapPane: function(paneName, view) {
+    this._currentView && this._currentView.remove();
+    for (var i = 1; i <= 3; i++) {
+      var name = "pane" + i;
+      if(name > paneName) {
+        this.panes[name] && this.panes[name].remove();
+      }
+    }
+
+    this.panes[paneName] = view;
+    this[paneName].html(view.render().$el);
   },
 
   _swapView: function(view) {
+    _(this.panes).each(function(selector, view) {
+      view.remove();
+    });
     this._currentView && this._currentView.remove();
     this._currenView = view;
     this.$rootEl.html(view.render().$el);

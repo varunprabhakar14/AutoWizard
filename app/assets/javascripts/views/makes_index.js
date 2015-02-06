@@ -1,5 +1,10 @@
 Final.Views.MakesIndex = Backbone.View.extend({
+  // tagName: 'ul',
   template: JST['makes_index'],
+
+  // initialize: function() {
+  //   this.subViews = [];
+  // },
 
   events: {
     'click li': 'selectMake'
