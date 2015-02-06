@@ -5,7 +5,8 @@ Final.Routers.Router = Backbone.Router.extend({
 
   routes: {
     '':'makesIndex',
-    'makes/:name':'makesShow'
+    'makes/:name':'makesShow',
+    'makes/:make/models/:model':'modelsShow'
   },
 
   makesIndex: function() {
@@ -21,9 +22,21 @@ Final.Routers.Router = Backbone.Router.extend({
       makeName : name
     });
     carModels.fetch();
-    var view = new Final.Views.ModelsIndex({
+    var view = new Final.Views.MakesShow({
       collection: carModels
     });
+    this._swapView(view);
+  },
+
+  modelsShow: function(make, model) {
+    var carTrims = new Final.Collections.Trims([], {
+      makeName: make,
+      modelName: model
+    })
+    carTrims.fetch();
+    var view = new Final.Views.ModelsShow({
+      collection: carTrims
+    })
     this._swapView(view);
   },
 

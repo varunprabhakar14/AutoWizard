@@ -2,6 +2,6 @@
 
 <ul class="makes-show-ul">
   <% models.each(function(model) { %>
-    <li><%= model.attributes.name %></li>
+    <li data-name="<%= model.escape('name') %>"><%= model.escape('name') %></li>
   <% }) %>
 </ul>

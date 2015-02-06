@@ -1,6 +1,7 @@
 Final.Collections.Models = Backbone.Collection.extend({
   initialize: function(models, options) {
     this.makeName = options.makeName
+    
   },
 
   model: Final.Models.Model,

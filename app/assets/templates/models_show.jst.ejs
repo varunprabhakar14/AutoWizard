@@ -1,0 +1,7 @@
+<h1>Select A Trim</h1>
+
+<ul class="models-show-ul">
+  <% trims.each(function(trim) { %>
+    <li data-style-id="<%= trim.escape('id') %>" class="<%= trim.escape('id') %>"><%= trim.escape('name') %></li>
+  <% }) %>
+</ul>
