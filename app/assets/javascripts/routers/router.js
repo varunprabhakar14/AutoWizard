@@ -10,7 +10,8 @@ Final.Routers.Router = Backbone.Router.extend({
   routes: {
     '':'makesIndex',
     'makes/:name':'makesShow',
-    'makes/:make/models/:model':'modelsShow'
+    'makes/:make/models/:model':'modelsShow',
+    ':styleId':'features'
   },
 
   makesIndex: function() {
@@ -46,8 +47,11 @@ Final.Routers.Router = Backbone.Router.extend({
     this._swapPane("pane3", view);
   },
 
-  features: function() {
-    //swapview
+  features: function(styleId) {
+    var listOfFeatures = new Final.Collections.Features([], {
+      styleId: styleId
+    })
+    listOfFeatures.fetch();
   },
 
   _swapPane: function(paneName, view) {
