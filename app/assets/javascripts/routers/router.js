@@ -52,6 +52,9 @@ Final.Routers.Router = Backbone.Router.extend({
       styleId: styleId
     })
     listOfFeatures.fetch();
+    var view = new Final.Views.FeaturesIndex({
+      collection: listOfFeatures
+    })
   },
 
   _swapPane: function(paneName, view) {

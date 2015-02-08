@@ -16,6 +16,11 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
-body {
+.backdrop {
   padding-top: 70px;
+  background-color: white;
 };
+
+body {
+  background-color: black;
+}

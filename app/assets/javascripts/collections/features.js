@@ -1,6 +1,7 @@
 Final.Collections.Features = Backbone.Collection.extend({
   initialize: function(models, options) {
     this.styleId = options.styleId;
+    this.features = {}
   },
 
   model: Final.Models.Feature,
@@ -10,9 +11,10 @@ Final.Collections.Features = Backbone.Collection.extend({
   },
 
   parse: function(response) {
+    var that = this;
     _(response.options).each(function(el) {
-      debugger
+      that.features[el.id] = {"name": el.name, "description": el.description, "category": el.category, "baseMSRP": el.price.baseMSRP}
     })
-    return response;
+    return response.options;
   }
 })

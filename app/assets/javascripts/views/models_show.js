@@ -30,7 +30,7 @@ Final.Views.ModelsShow = Backbone.View.extend({
   render: function() {
     var content = this.template({ trims: this.collection });
     this.$el.html(content);
-    this.addStartingPrice(this.$el);
+    // this.addStartingPrice(this.$el);
     return this;
   },
 
@@ -38,18 +38,4 @@ Final.Views.ModelsShow = Backbone.View.extend({
     var styleId = $(event.currentTarget).attr('data-style-id');
     Backbone.history.navigate('/' + styleId, { trigger: true });
   }
-
-  // events: {
-  //   'click li': 'selectTrim'
-  // },
-
-  // initialize: function() {
-  //   this.listenTo(this.collection, 'sync', this.render);
-  // },
-
-  // selectTrim: function(event) {
-  //   var makeName = this.collection.makeName;
-  //   var modelName = $(event.currentTarget).attr('data-name');
-  //   Backbone.history.navigate('/makes/' + makeName + '/models/' + modelName);
-  // }
 });
