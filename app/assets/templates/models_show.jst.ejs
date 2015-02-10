@@ -2,6 +2,6 @@
 
 <ul class="models-show-ul">
   <% trims.each(function(trim) { %>
-    <li data-style-id="<%= trim.escape('id') %>" class="<%= trim.escape('id') %>"><%= trim.escape('name') %></li>
+    <li data-style-id="<%= trim.escape('id') %>" data-name="<%= trim.escape('name') %>"><%= trim.escape('name') %></li>
   <% }) %>
 </ul>

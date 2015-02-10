@@ -1,0 +1,25 @@
+<div class="row">
+  <div class="col-md-12">
+    <h4><%= category %></h4>
+  </div>
+</div>
+
+<% _(values).each(function(el) { %>
+  <div class"row">
+
+    <div data-name="<%= el.name %>" data-description="<%= el.description %>" data-baseMSRP="<%= el.baseMSRP %>" class="checkbox">
+      <label>
+        <input type="checkbox">
+      </label>
+    </div>
+
+    <div>
+      <%= el.name %>
+    </div>
+
+    <div>
+      $<%= el.baseMSRP %>
+    </div>
+  </div>
+  <br>
+<% }) %>

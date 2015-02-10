@@ -30,7 +30,7 @@ jQuery(function(){
 <!--Video Section-->
 <div class="content-section video-section">
   <div class="pattern-overlay">
-    <a id="bgndVideo" class="player" data-property="{videoURL:'https://www.youtube.com/watch?v=SlG-ualRTvU',containment:'.video-section', quality:'small', autoPlay:true, mute:true, opacity:1}">bg</a>
+    <a id="bgndVideo" class="player" data-property="{videoURL:'https://www.youtube.com/watch?v=SlG-ualRTvU',containment:'.video-section', quality:'small', autoPlay:true, mute:false, opacity:1}">bg</a>
     <div class="container">
       <div class="row">
         <div class="col-lg-12">
@@ -42,13 +42,13 @@ jQuery(function(){
               <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
               <div class="form-group">
                 <label>Username<br>
-                  <input name="user[username]" type="text"><br>
+                  <input class="user-input" name="user[username]" type="text"><br>
                 </label>
               </div>
 
               <div class="form-group">
                 <label>Password<br>
-                  <input name="user[password]" type="password"><br>
+                  <input class="user-input" name="user[password]" type="password"><br>
                 </label>
               </div>
 

@@ -3,6 +3,8 @@ class User < ActiveRecord::Base
   validates :password, length: { minimum: 1, allow_nil: true }
   validates :username, uniqueness: true
 
+  has_many :cars
+
   attr_reader :password
   after_initialize :ensure_session_token
 
