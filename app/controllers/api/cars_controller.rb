@@ -1,8 +1,9 @@
 module Api
   class CarsController < ApiController
+    wrap_parameters :car, include: [:make, :model, :trim_name, :trim_number, :price, :features_attributes]
     def create
       @car = current_user.cars.new(car_params)
-      
+
       if @car.save
         render json: @car
       else
@@ -18,7 +19,16 @@ module Api
     private
 
     def car_params
-      params.require(:car).permit(:make, :model, :trim_name, :trim_number, :price)
+      params.require(:car).permit(
+        :make,
+        :model,
+        :trim_name,
+        :trim_number,
+        :price,
+        {
+          :features_attributes => [:name, :description, :price]
+        }
+      )
     end
   end
 end

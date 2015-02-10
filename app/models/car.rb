@@ -3,4 +3,5 @@ class Car < ActiveRecord::Base
 
   belongs_to :user
   has_many :features
+  accepts_nested_attributes_for :features
 end

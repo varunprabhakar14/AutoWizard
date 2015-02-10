@@ -1,5 +1,5 @@
 class Feature < ActiveRecord::Base
-  validates :name, :description, :price
+  validates :name, :price, :presence => true
 
   belongs_to :car
 end

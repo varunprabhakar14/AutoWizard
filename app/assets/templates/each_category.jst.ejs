@@ -5,21 +5,22 @@
 </div>
 
 <% _(values).each(function(el) { %>
-  <div class"row">
+<div class"row group">
 
-    <div data-name="<%= el.name %>" data-description="<%= el.description %>" data-baseMSRP="<%= el.baseMSRP %>" class="checkbox">
-      <label>
-        <input type="checkbox">
-      </label>
+    <div class="col-md-1">
+      <input data-name="<%= el.name %>"
+             data-description="<%= el.description %>"
+             data-baseMSRP="<%= el.baseMSRP %>"
+             type="checkbox">
     </div>
 
-    <div>
+    <div class="col-md-6">
       <%= el.name %>
     </div>
 
-    <div>
+    <div class="col-md-5">
       $<%= el.baseMSRP %>
     </div>
-  </div>
-  <br>
+  </form>
+</div>
 <% }) %>
