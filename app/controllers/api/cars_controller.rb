@@ -3,7 +3,6 @@ module Api
     wrap_parameters :car, include: [:make, :model, :trim_name, :trim_number, :price, :features_attributes]
     def create
       @car = current_user.cars.new(car_params)
-
       if @car.save
         render json: @car
       else

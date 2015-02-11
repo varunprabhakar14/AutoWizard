@@ -29,10 +29,12 @@ Final.Views.AllFeaturesIndex = Backbone.View.extend({
     var result = {};
     this.collection.each(function(el) {
       var el = el.attributes;
-      if(result[el.category]) {
-        result[el.category].push({"id": el.id, "name": el.name, "description": el.description, "baseMSRP": el.price.baseMSRP})
-      } else {
-        result[el.category] = [{"id": el.id, "name": el.name, "description": el.description, "baseMSRP": el.price.baseMSRP}]
+      if(el.price) {
+        if(result[el.category]) {
+          result[el.category].push({"id": el.id, "name": el.name, "description": el.description, "baseMSRP": el.price.baseMSRP})
+        } else {
+          result[el.category] = [{"id": el.id, "name": el.name, "description": el.description, "baseMSRP": el.price.baseMSRP}]
+        }
       }
     })
     return result;
@@ -81,12 +83,22 @@ Final.Views.AllFeaturesIndex = Backbone.View.extend({
   },
 
   saveCar: function(event) {
-    this.model.set({
-      price: this.currentPrice
-    })
-    this.model.save({
+    if(this.currentPrice) {
+      this.model.set({
+        price: this.currentPrice
+      })
+    }
+    var that = this;
+    if(this.model.get('features_attributes').length === 0) {
+      this.model.get('features_attributes').push({
+        name: 'NONE',
+        description: 'NONE',
+        price: 'NONE'
+      });
+    }
+    this.model.save({}, {
       success: function() {
-        console.log("SUCCESS")
+        Backbone.history.navigate('garage', {trigger: true})
       }
     });
   }

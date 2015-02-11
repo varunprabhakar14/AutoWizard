@@ -5,22 +5,24 @@
 </div>
 
 <% _(values).each(function(el) { %>
-<div class"row group">
+  <% if(el.baseMSRP != 0) { %>
+    <div class"row group">
 
-    <div class="col-md-1">
-      <input data-name="<%= el.name %>"
-             data-description="<%= el.description %>"
-             data-baseMSRP="<%= el.baseMSRP %>"
-             type="checkbox">
-    </div>
+        <div class="col-md-1">
+          <input data-name="<%= el.name %>"
+                 data-description="<%= el.description %>"
+                 data-baseMSRP="<%= el.baseMSRP %>"
+                 type="checkbox">
+        </div>
 
-    <div class="col-md-6">
-      <%= el.name %>
-    </div>
+        <div class="col-md-6">
+          <%= el.name %>
+        </div>
 
-    <div class="col-md-5">
-      $<%= el.baseMSRP %>
+        <div class="col-md-5">
+          $<%= el.baseMSRP %>
+        </div>
+      </form>
     </div>
-  </form>
-</div>
+  <% } %>
 <% }) %>

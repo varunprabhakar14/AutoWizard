@@ -13,7 +13,8 @@ Final.Routers.Router = Backbone.Router.extend({
     '':'makesIndex',
     'makes/:name':'makesShow',
     'makes/:make/models/:model':'modelsShow',
-    ':make/:model/:styleId':'allFeatures'
+    ':make/:model/:styleId':'allFeatures',
+    'garage':'myGarage'
   },
 
   makesIndex: function() {
@@ -123,5 +124,16 @@ Final.Routers.Router = Backbone.Router.extend({
         })
       }
     })
+  },
+
+  myGarage: function() {
+    var myCars = new Final.Collections.Cars();
+    myCars.fetch();
+
+    var view = new Final.Views.Garage({
+      collection: myCars
+    });
+    this._swapView(view);
+    //render stuff
   }
 })

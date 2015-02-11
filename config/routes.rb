@@ -3,8 +3,9 @@ Rails.application.routes.draw do
   resources :users, only: [:new, :create]
 
   namespace :api, defaults: { format: :json } do
-    resources :cars
-    resources :features
+    resources :cars do
+      resources :features, only: [:index]
+    end
   end
 
   # resources :makes, only: [:index, :show] do

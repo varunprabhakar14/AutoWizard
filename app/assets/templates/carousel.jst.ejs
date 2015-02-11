@@ -1,0 +1,14 @@
+<script src="../js/carousel.js"></script>
+
+<link href="../stylesheets/static_pages.css.scss" rel="stylesheet" type="text/css">
+
+<div class="carousel">
+  <div class="items">
+    <% _(allPics.attributes).each(function(pic) { %>
+      <img src="http://media.ed.edmunds-media.com/<%= pic.id.slice(10) %>_600.jpg">
+    <% }) %>
+  </div>
+
+  <a href="javascript:void(0)" class="slide-right">Prev</a>
+  <a href="javascript:void(0)" class="slide-left">Next</a>
+</div>
