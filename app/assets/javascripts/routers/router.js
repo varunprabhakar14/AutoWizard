@@ -55,20 +55,6 @@ Final.Routers.Router = Backbone.Router.extend({
 
   allFeatures: function(make, model, styleId) {
     var that = this;
-
-    // if(!this.currentCar.attributes.price) {
-    //   this.currentCar.set({make: make, model: model, trim_number: styleId})
-    //   var price = new Final.Models.StartingPrice([], {
-    //     styleId: styleId
-    //   });
-    //
-    //   price.fetch({
-    //     success: function() {
-    //       that.currentCar.set({price: price.attributes.value})
-    //     }
-    //   });
-    // }
-
     this.setCurrentCar(styleId);
 
     var listOfFeatures = new Final.Collections.AllFeatures([], {

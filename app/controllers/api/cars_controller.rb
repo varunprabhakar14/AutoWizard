@@ -1,8 +1,18 @@
 module Api
   class CarsController < ApiController
     wrap_parameters :car, include: [:make, :model, :trim_name, :trim_number, :price, :features_attributes]
+
     def create
       @car = current_user.cars.new(car_params)
+      if @car.save
+        render json: @car
+      else
+        render json: @car.errors.full_messages, status: :unprocessable_entity
+      end
+    end
+
+    def update
+      @car = current_user.cars.find(params[:id])
       if @car.save
         render json: @car
       else
@@ -13,6 +23,12 @@ module Api
     def index
       @cars = current_user.cars
       render json: @cars
+    end
+
+    def destroy
+      @car = current_user.cars.find(params[:id])
+      @car.try(:destroy)
+      render json: {}
     end
 
     private

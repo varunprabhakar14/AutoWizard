@@ -1,0 +1,10 @@
+<ul>
+  <% features.each(function(feature) { %>
+    <li>
+      <%= feature.escape('name') %>
+      <ul>
+        <li>$<%= feature.escape('price') %></li>
+      </ul>
+    </li>
+  <% }) %>
+</ul>

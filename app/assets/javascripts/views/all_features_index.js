@@ -10,7 +10,7 @@ Final.Views.AllFeaturesIndex = Backbone.View.extend({
   initialize: function() {
     this.listenTo(this.collection, 'sync', this.render);
     // this.currentPrice = parseInt(this.model.attributes.price);
-    this.features = new Final.Collections.Features();
+    // this.features = new Final.Collections.Features();
     this.model.set('features_attributes', []);
   },
 

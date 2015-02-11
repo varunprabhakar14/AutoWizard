@@ -1,14 +1,36 @@
-<script src="../js/carousel.js"></script>
+<div id="<%= styleId %>" class="carousel slide" data-ride="carousel">
+  <!-- Indicators -->
+  <ol class="carousel-indicators">
+    <li data-target="#<%= styleId %>" data-slide-to="0" class="active"></li>
+    <% _(allPics.attributes).each(function(pic, index) { %>
+      <li data-target="#<%= styleId %>" data-slide-to="<%= index + 1 %>"></li>
+    <% }) %>
+  </ol>
 
-<link href="../stylesheets/static_pages.css.scss" rel="stylesheet" type="text/css">
-
-<div class="carousel">
-  <div class="items">
-    <% _(allPics.attributes).each(function(pic) { %>
-      <img src="http://media.ed.edmunds-media.com/<%= pic.id.slice(10) %>_600.jpg">
+  <!-- Wrapper for slides -->
+  <div class="carousel-inner">
+    <!-- <div class="item active">
+      <img src="http://placehold.it/1200x315" alt="...">
+    </div> -->
+    <% _(allPics.attributes).each(function(pic, index) { %>
+      <% if (index === "0") { %>
+        <div class="item active">
+      <% } else { %>
+        <div class="item">
+      <% } %>
+        <img src="http://media.ed.edmunds-media.com/<%= pic.id.slice(10) %>_600.jpg">
+      </div>
     <% }) %>
   </div>
 
-  <a href="javascript:void(0)" class="slide-right">Prev</a>
-  <a href="javascript:void(0)" class="slide-left">Next</a>
-</div>
+  <!-- Controls -->
+  <a class="left carousel-control" data-target="#<%= styleId %>" role="button" data-slide="prev">
+    <span class="glyphicon glyphicon-chevron-left"></span>
+  </a>
+  <a class="right carousel-control" data-target="#<%= styleId %>" role="button" data-slide="next">
+    <span class="glyphicon glyphicon-chevron-right"></span>
+  </a>
+</div> <!-- Carousel -->
+<button type="button" class="btn btn-default btn-lg delete">
+  Delete Car<span class="glyphicon glyphicon-ax" aria-hidden="true"></span>
+</button>

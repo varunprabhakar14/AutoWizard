@@ -7,7 +7,8 @@ Final.Views.MakesIndex = Backbone.View.extend({
   // },
 
   events: {
-    'click li': 'selectMake'
+    'click li': 'selectMake',
+    'click button': 'goToGarage'
   },
 
   initialize: function() {
@@ -23,5 +24,9 @@ Final.Views.MakesIndex = Backbone.View.extend({
   selectMake: function(event) {
     var makeName = $(event.currentTarget).attr("data-name")
     Backbone.history.navigate('/makes/' + makeName, {trigger:true})
+  },
+
+  goToGarage: function() {
+    Backbone.history.navigate('/garage', {trigger: true})
   }
 });
