@@ -20,7 +20,7 @@ Final.Routers.Router = Backbone.Router.extend({
 
   makesIndex: function() {
     this.$body.removeClass('body')
-    // this.$body.addClass('backbone')
+    this.$body.addClass('backbone')
     Final.Collections.makes.fetch();
     var view = new Final.Views.MakesIndex({
       collection: Final.Collections.makes

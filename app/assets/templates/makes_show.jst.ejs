@@ -1,9 +1,15 @@
-<h1 class="all-models">Select A Model</h1>
+<div class="panel panel-info">
+  <div class="panel-heading">
+    <h1 class="all-models">Select A Model</h1>
+  </div>
 
-<ul class="makes-models-trims">
-  <% models.each(function(model) { %>
-    <li class="list-group-item" data-name="<%= model.escape('name') %>">
-      <a><%= model.escape('name') %></a>
-    </li>
-  <% }) %>
-</ul>
+  <div class="panel-body">
+    <ul class="makes-models-trims">
+      <% models.each(function(model) { %>
+        <li class="list-group-item" data-name="<%= model.escape('name') %>">
+          <a><%= model.escape('name') %></a>
+        </li>
+        <% }) %>
+      </ul>
+    </div>
+</div>

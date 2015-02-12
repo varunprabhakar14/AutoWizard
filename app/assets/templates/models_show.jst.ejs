@@ -1,9 +1,15 @@
-<h1>Select A Trim</h1>
+<div class="panel panel-warning">
+  <div class="panel-heading">
+    <h1 class="all-models">Select A Trim</h1>
+  </div>
 
-<ul class="makes-models-trims">
-  <% trims.each(function(trim) { %>
-    <li class="list-group-item" data-style-id="<%= trim.escape('id') %>" data-name="<%= trim.escape('name') %>">
-      <a><%= trim.escape('name') %></a>
-    </li>
-  <% }) %>
-</ul>
+  <div class="panel-body">
+    <ul class="makes-models-trims">
+      <% trims.each(function(trim) { %>
+        <li class="list-group-item" data-style-id="<%= trim.escape('id') %>" data-name="<%= trim.escape('name') %>">
+          <a><%= trim.escape('name') %></a>
+        </li>
+        <% }) %>
+      </ul>
+    </div>
+  </div>

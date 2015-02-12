@@ -12,6 +12,10 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery.transit.min
+//= require video
+//= require bigvideo
+//= require modernizr
 //= require underscore
 //= require backbone
 //= require final

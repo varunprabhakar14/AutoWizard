@@ -1,12 +1,61 @@
+<div class="sign-up-log-in">
+
+<header>
 <h1>Sign Up</h1>
 
 <form action="/users" method="post">
   <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-  <label>Username<br>
-    <input name="user[username]" type="text"><br>
-  </label><br>
-  <label>Password<br>
-    <input name="user[password]" type="password"><br>
-  </label><br>
+
+  <div class="form-group">
+    <label>Username<br>
+      <input class="user-input" name="user[username]" type="text"><br>
+    </label>
+  </div>
+
+  <div class="form-group">
+    <label>Password<br>
+      <input class="user-input" name="user[password]" type="password"><br>
+    </label>
+  </div>
+
   <input type="submit" value="Submit" class="btn btn-primary"><br>
 </form>
+</header>
+
+  <!-- <header>
+    <h1>Fullscreen Video Slideshow <span>with BigVideo.js</span></h1>
+    <p>The videos in this demo are from <a href="http://beachfrontprod.blogspot.com" target="_blank">Beachfront B-Roll</a>, a great place to download unique HD stock video footage and animated backgrounds for any production purpose (for free!).</p>
+    <p><small>A demo for</small> <a href="http://dfcb.github.com/BigVideo.js/" target="_blank">BigVideo.js</a> <small>by <a href="http://twitter.com/johnpolacek" target="_blank" rel="author">@johnpolacek</a></small></p>
+  </header> -->
+
+  <div class="wrapper">
+    <div class="screen" data-video="/assets/bmw_commercial.mp4">
+    </div>
+  </div>
+
+  <script>
+
+    var BV,
+    isTouch = Modernizr.touch;
+
+    if (!isTouch) {
+      // initialize BigVideo
+      BV = new $.BigVideo({forceAutoplay:isTouch});
+      BV.init();
+      showVideo();
+
+      // adjust image positioning so it lines up with video
+      $bigImage
+      .css('position','relative')
+      .imagesLoaded(adjustImagePositioning);
+      // and on window resize
+      $(window).on('resize', adjustImagePositioning);
+    }
+
+    function showVideo() {
+      BV.show($('.screen').attr('data-video'),{ambient:true}); //ambient true means no sound
+    }
+
+  </script>
+
+</div>

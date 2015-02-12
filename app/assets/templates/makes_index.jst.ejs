@@ -2,12 +2,19 @@
   Garage  <span class="glyphicon glyphicon-cars" aria-hidden="true"></span>
 </button>
 
-<h1 class="all-makes">Select A Make</h1>
+<div class="panel panel-success">
+  <div class="panel-heading">
+    <h1 class="all-makes">Select A Make</h1>
+  </div>
 
-<ul class="makes-models-trims">
-  <% makes.each(function(make) { %>
-    <li class="list-group-item" data-id="<%= make.id %>" data-name="<%= make.attributes.name %>">
-      <a><%= make.attributes.name %></a>
-    </li>
-  <% }) %>
-</ul>
+  <div class="panel-body">
+    <ul class="makes-models-trims">
+      <% makes.each(function(make) { %>
+        <li class="list-group-item" data-id="<%= make.id %>" data-name="<%= make.attributes.name %>">
+          <a><%= make.attributes.name %></a>
+        </li>
+      <% }) %>
+    </ul>
+  </div>
+
+</div>
