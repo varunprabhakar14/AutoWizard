@@ -10,7 +10,7 @@ Final.Views.Garage = Backbone.View.extend({
         model: car
       })
 
-      that.$el.append(carView.render().$el);
+      that.$el.prepend(carView.render().$el);
     })
     return this;
   }

@@ -25,6 +25,12 @@ body {
   background-color: black;
 }
 
+body.backbone {
+  background-color: green;
+}
+
 .checkbox input[type=checkbox] {
   margin: 0;
 }
+
+a { cursor: pointer; cursor: hand; }

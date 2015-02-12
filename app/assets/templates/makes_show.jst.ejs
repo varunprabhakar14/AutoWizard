@@ -1,7 +1,9 @@
 <h1 class="all-models">Select A Model</h1>
 
-<ul class="makes-show-ul">
+<ul class="makes-models-trims">
   <% models.each(function(model) { %>
-    <li data-name="<%= model.escape('name') %>"><%= model.escape('name') %></li>
+    <li class="list-group-item" data-name="<%= model.escape('name') %>">
+      <a><%= model.escape('name') %></a>
+    </li>
   <% }) %>
 </ul>

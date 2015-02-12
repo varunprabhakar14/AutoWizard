@@ -7,6 +7,7 @@ Final.Routers.Router = Backbone.Router.extend({
     this.pane3 = options.pane3;
     this.currentCar = new Final.Models.Car();
     this.startingPrice = this.currentCar.get('price');
+    this.$body = $(".body");
   },
 
   routes: {
@@ -18,6 +19,8 @@ Final.Routers.Router = Backbone.Router.extend({
   },
 
   makesIndex: function() {
+    this.$body.removeClass('body')
+    // this.$body.addClass('backbone')
     Final.Collections.makes.fetch();
     var view = new Final.Views.MakesIndex({
       collection: Final.Collections.makes

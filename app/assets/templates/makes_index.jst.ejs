@@ -4,8 +4,10 @@
 
 <h1 class="all-makes">Select A Make</h1>
 
-<ul class="makes-ul">
+<ul class="makes-models-trims">
   <% makes.each(function(make) { %>
-    <li data-id="<%= make.id %>" data-name="<%= make.attributes.name %>"><%= make.attributes.name %></li>
+    <li class="list-group-item" data-id="<%= make.id %>" data-name="<%= make.attributes.name %>">
+      <a><%= make.attributes.name %></a>
+    </li>
   <% }) %>
 </ul>

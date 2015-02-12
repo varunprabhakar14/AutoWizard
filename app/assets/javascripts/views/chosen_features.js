@@ -6,9 +6,12 @@ Final.Views.ChosenFeatures = Backbone.View.extend({
   },
 
   render: function() {
-    var that = this;
-    var content = that.template({features: this.collection})
-    that.$el.append(content)
+    this.$el.empty();
+    var content = this.template({
+      features: this.collection,
+      finalPrice: this.model.get('price')
+    })
+    this.$el.append(content)
     return this;
   }
 });

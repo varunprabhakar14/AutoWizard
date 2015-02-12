@@ -9,21 +9,36 @@ Final.Views.CarView = Backbone.View.extend({
   render: function() {
     var that = this;
 
+    //make model trim
     var infoTemplate = this.carInfoTemplate({car: this.model})
     this.$el.append(infoTemplate)
 
-
+    //features
     var features = new Final.Collections.Features([], {car_id: this.model.id});
     features.fetch();
-    var featuresView = new Final.Views.ChosenFeatures({collection: features});
+    var featuresView = new Final.Views.ChosenFeatures({
+      collection: features,
+      model: this.model
+    });
     this.$el.append(featuresView.render().$el)
 
+    //fetching pictures
     var styleId = this.model.get('trim_number');
     var AllPics = Backbone.Model.extend({
-      url: 'https://api.edmunds.com/v1/api/vehiclephoto/service/findphotosbystyleid?styleId=' + styleId + '&fmt=json&api_key=u79wmp7tc5htfw2c2m6wfvdm'
+      url: 'https://api.edmunds.com/v1/api/vehiclephoto/service/findphotosbystyleid?styleId=' + styleId + '&fmt=json&api_key=u79wmp7tc5htfw2c2m6wfvdm',
+
+      // parse: function(response) {
+      //   var arr = [];
+      //   _(response).each(function(el) {
+      //     if(el.subType === 'exterior') {
+      //       arr.push(el)
+      //     }
+      //   })
+      //   return arr;
+      // }
     });
 
-    var beginning = 'http://media.ed.edmunds-media.com/'
+    //rendering carousel
     var allPics = new AllPics();
     allPics.fetch({
       success: function() {
