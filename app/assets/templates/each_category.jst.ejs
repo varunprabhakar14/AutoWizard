@@ -7,12 +7,12 @@
 <% _(values).each(function(el) { %>
   <% if(el.baseMSRP != 0) { %>
     <div class"row group">
-
+      <div class="each-feature">
         <div class="col-md-1">
           <input data-name='<%= el.name %>'
-                 data-description="<%= el.description %>"
-                 data-baseMSRP="<%= el.baseMSRP %>"
-                 type="checkbox">
+          data-description="<%= el.description %>"
+          data-baseMSRP="<%= el.baseMSRP %>"
+          type="checkbox">
         </div>
 
         <div class="col-md-6">
@@ -22,7 +22,8 @@
         <div class="col-md-5">
           $<%= el.baseMSRP %>
         </div>
-      </form>
+      </div>
     </div>
+    <br>
   <% } %>
 <% }) %>

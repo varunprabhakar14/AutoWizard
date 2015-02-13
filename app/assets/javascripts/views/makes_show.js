@@ -1,5 +1,6 @@
 Final.Views.MakesShow = Backbone.View.extend({
   template: JST['makes_show'],
+  // className: 'animated fadeInRight',
 
   events: {
     'click li': 'selectModel'
@@ -10,6 +11,8 @@ Final.Views.MakesShow = Backbone.View.extend({
   },
 
   render: function() {
+    this.$el.empty();
+
     var content = this.template({ models: this.collection });
     this.$el.html(content);
     return this;

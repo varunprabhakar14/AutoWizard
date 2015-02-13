@@ -1,6 +1,7 @@
 Final.Views.MakesIndex = Backbone.View.extend({
   // tagName: 'ul',
   template: JST['makes_index'],
+  // className: 'animated fadeInRight',
 
   // initialize: function() {
   //   this.subViews = [];
@@ -16,6 +17,7 @@ Final.Views.MakesIndex = Backbone.View.extend({
   },
 
   render: function() {
+    this.$el.empty();
     var content = this.template({ makes: this.collection });
     this.$el.html(content);
     return this;

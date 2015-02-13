@@ -1,5 +1,6 @@
 Final.Views.ModelsShow = Backbone.View.extend({
   template: JST['models_show'],
+  // className: 'animated fadeInRight',
 
   events: {
     'click li': 'selectTrim'
@@ -31,6 +32,8 @@ Final.Views.ModelsShow = Backbone.View.extend({
   },
 
   render: function() {
+    this.$el.empty();
+
     var content = this.template({ trims: this.collection });
     this.$el.html(content);
     // this.setStartingPrice(this.$el);
