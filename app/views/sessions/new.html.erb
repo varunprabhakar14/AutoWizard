@@ -1,34 +1,9 @@
-<!-- <h1>Sign In</h1>
-
-<form action="/session" method="post">
-  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-  <div class="form-group">
-    <label>Username<br>
-      <input name="user[username]" type="text"><br>
-    </label>
-  </div>
-
-  <div class="form-group">
-    <label>Password<br>
-      <input name="user[password]" type="password"><br>
-    </label>
-  </div>
-
-  <input type="submit" value="Submit" class="btn btn-primary"><br>
-</form> -->
-
 <!-- Warming Up -->
 <link href='http://fonts.googleapis.com/css?family=Buenard:700' rel='stylesheet' type='text/css'>
 <script src="http://pupunzi.com/mb.components/mb.YTPlayer/demo/inc/jquery.mb.YTPlayer.js"></script>
 
-<script>
-jQuery(function(){
-  jQuery(".player").mb_YTPlayer();
-});
-</script>
-
 <!--Video Section-->
-<div class="content-section video-section">
+<!-- <div class="content-section video-section">
   <div class="pattern-overlay">
     <a id="bgndVideo" class="player" data-property="{videoURL:'https://www.youtube.com/watch?v=SlG-ualRTvU',containment:'.video-section', quality:'small', autoPlay:true, mute:false, opacity:1}">bg</a>
     <div class="container">
@@ -59,5 +34,63 @@ jQuery(function(){
       </div>
     </div>
   </div>
-</div>
+</div> -->
 <!--Video Section Ends Here-->
+
+<div class="sign-up-log-in">
+
+  <header>
+    <h1 class="auto-wizard">AutoWizard</h1>
+
+    <h1>Log In</h1>
+
+    <form action="/session" method="post">
+      <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+
+      <div class="form-group">
+        <label>Username<br>
+          <input class="user-input" name="user[username]" type="text"><br>
+        </label>
+      </div>
+
+      <div class="form-group">
+        <label>Password<br>
+          <input class="user-input" name="user[password]" type="password"><br>
+        </label>
+      </div>
+
+      <input type="submit" value="Submit" class="btn btn-primary"><br>
+    </form>
+  </header>
+
+  <div class="wrapper">
+    <div class="screen" data-video="/assets/bmw_commercial.mp4">
+    </div>
+  </div>
+
+  <script>
+
+  var BV,
+  isTouch = Modernizr.touch;
+
+  if (!isTouch) {
+    // initialize BigVideo
+    BV = new $.BigVideo({forceAutoplay:isTouch});
+    BV.init();
+    showVideo();
+
+    // adjust image positioning so it lines up with video
+    $bigImage
+    .css('position','relative')
+    .imagesLoaded(adjustImagePositioning);
+    // and on window resize
+    $(window).on('resize', adjustImagePositioning);
+  }
+
+  function showVideo() {
+    BV.show($('.screen').attr('data-video'),{ambient:true}); //ambient true means no sound
+  }
+
+</script>
+
+</div>

@@ -57,6 +57,8 @@ Final.Routers.Router = Backbone.Router.extend({
   },
 
   allFeatures: function(make, model, styleId) {
+    this.$body.removeClass('body')
+    this.$body.addClass('backbone')
     var that = this;
     this.setCurrentCar(styleId);
 
@@ -116,6 +118,8 @@ Final.Routers.Router = Backbone.Router.extend({
   },
 
   myGarage: function() {
+    this.$body.removeClass('body')
+    this.$body.addClass('backbone')
     var myCars = new Final.Collections.Cars();
     myCars.fetch();
 

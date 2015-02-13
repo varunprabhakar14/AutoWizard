@@ -23,6 +23,7 @@
 
 body {
   background-color: black;
+  position: relative;
 }
 
 body.backbone {
@@ -34,3 +35,11 @@ body.backbone {
 }
 
 a { cursor: pointer; cursor: hand; }
+
+.navbar-brand {
+  font-size: 150%;
+}
+
+.garage-link {
+  font-size: 100%;
+}

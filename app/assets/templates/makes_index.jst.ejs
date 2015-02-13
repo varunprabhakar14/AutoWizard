@@ -1,8 +1,8 @@
-<button type="button" class="btn btn-default btn-lg">
+<!-- <button type="button" class="btn btn-default btn-lg">
   Garage  <span class="glyphicon glyphicon-cars" aria-hidden="true"></span>
-</button>
+</button> -->
 
-<div class="panel panel-success">
+<div class="panel panel-danger">
   <div class="panel-heading">
     <h1 class="all-makes">Select A Make</h1>
   </div>
@@ -11,7 +11,7 @@
     <ul class="makes-models-trims">
       <% makes.each(function(make) { %>
         <li class="list-group-item" data-id="<%= make.id %>" data-name="<%= make.attributes.name %>">
-          <a><%= make.attributes.name %></a>
+          <a class="scrollToTop"><%= make.attributes.name %></a>
         </li>
       <% }) %>
     </ul>
