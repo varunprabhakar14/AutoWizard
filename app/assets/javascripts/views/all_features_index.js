@@ -46,18 +46,16 @@ Final.Views.AllFeaturesIndex = Backbone.View.extend({
     if(!this.currentPrice) {
       this.currentPrice = parseInt(this.model.attributes.price);
     }
+
     if ($target.attr("checked")) {
       $target.removeAttr("checked");
-
-      // var toRemove = this.features.get($(event.currentTarget).data('model-id'))
-      //
-      // this.features.remove(toRemove)
 
       var toRemove = {
         name: $(event.currentTarget).data('name'),
         description: $(event.currentTarget).data('description'),
         price: $(event.currentTarget).data('basemsrp')
       };
+
       var index = this.model.get('features_attributes').indexOf(toRemove);
       this.model.get('features_attributes').splice(index, 1);
 
@@ -67,19 +65,11 @@ Final.Views.AllFeaturesIndex = Backbone.View.extend({
 
       this.currentPrice += parseInt($(event.currentTarget).data('basemsrp'))
 
-      // var feature = new Final.Models.Feature({
-      //   name: $(event.currentTarget).data('name'),
-      //   description: $(event.currentTarget).data('description'),
-      //   currentPrice: $(event.currentTarget).data('basemsrp')
-      // })
-
-      // $(event.currentTarget).data('model-id', feature.cid)
       this.model.get('features_attributes').push({
         name: $(event.currentTarget).data('name'),
         description: $(event.currentTarget).data('description'),
         price: $(event.currentTarget).data('basemsrp')
       });
-      // this.features.add(feature);
     }
   },
 

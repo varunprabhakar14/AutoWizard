@@ -18,6 +18,7 @@ Final.Views.MakesShow = Backbone.View.extend({
   selectModel: function(event) {
     var makeName = this.collection.makeName;
     var modelName = $(event.currentTarget).attr('data-name');
+    $('body').animate({scrollTop : 0},800);
     Backbone.history.navigate('/makes/' + makeName + '/models/' + modelName, { trigger: true });
   }
 });

@@ -23,7 +23,7 @@
 
 body {
   background-color: black;
-  position: relative;
+  // position: relative;
 }
 
 body.backbone {
@@ -40,6 +40,16 @@ a { cursor: pointer; cursor: hand; }
   font-size: 150%;
 }
 
-.garage-link {
-  font-size: 100%;
+.alert {
+  position: absolute;
+  top: 100px;
+  z-index: 999;
+  margin-left: 50%;
+  transform: translateX(-50%);
+  // width: 50%;
+  // text-align: center;
+}
+
+.makes-models-trims :hover {
+  background-color: orange;
 }

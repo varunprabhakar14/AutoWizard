@@ -1,6 +1,7 @@
 Final.Views.CarView = Backbone.View.extend({
   carouselTemplate: JST['carousel'],
   carInfoTemplate: JST['car_info'],
+  className: 'my-car',
 
   events: {
     "click .delete": "destroyCar"

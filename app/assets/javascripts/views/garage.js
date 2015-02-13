@@ -1,4 +1,6 @@
 Final.Views.Garage = Backbone.View.extend({
+  className: 'my-garage',
+
   initialize: function() {
     this.listenTo(this.collection, 'destroy remove sync', this.render)
   },

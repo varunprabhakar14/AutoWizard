@@ -23,6 +23,7 @@ Final.Views.MakesIndex = Backbone.View.extend({
 
   selectMake: function(event) {
     var makeName = $(event.currentTarget).attr("data-name")
+    $('body').animate({scrollTop : 0},800);
     Backbone.history.navigate('/makes/' + makeName, {trigger:true})
   },
 
