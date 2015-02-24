@@ -8,23 +8,37 @@
 
     <h2>Log In</h1>
 
-    <form action="/session" method="post">
-      <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+    <span class="spanFormat">
+      <form action="<%= session_url %>" method="POST">
+        <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
 
-      <div class="form-group">
-        <label>Username<br>
-          <input class="user-input" name="user[username]" type="text"><br>
-        </label>
-      </div>
+        <div class="form-group">
+          <label>Username<br>
+            <input class="user-input" name="user[username]" type="text"><br>
+          </label>
+        </div>
 
-      <div class="form-group">
-        <label>Password<br>
-          <input class="user-input" name="user[password]" type="password"><br>
-        </label>
-      </div>
+        <div class="form-group">
+          <label>Password<br>
+            <input class="user-input" name="user[password]" type="password"><br>
+          </label>
+        </div>
 
-      <input type="submit" value="Submit" class="btn btn-primary"><br>
-    </form>
+        <input type="submit" value="Submit" class="login-button btn btn-primary"><br>
+      </form>
+    </span>
+
+    <span class="spanFormat">
+      <form class="guest-button" action="<%= session_url %>" method="POST">
+        <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+        <input type="hidden" name="user[username]" value="varun">
+        <input type="hidden" name="user[password]" value="varun">
+        <div class="form-group">
+          <button class="btn btn-primary" id="guestLogin">Guest Login</button>
+        </div>
+      </form>
+    </span>
+
   </header>
 
   <div class="wrapper">

@@ -1,10 +1,16 @@
 <div id="<%= styleId %>" class="carousel slide" data-ride="carousel">
   <!-- Indicators -->
   <ol class="carousel-indicators">
-    <li data-target="#<%= styleId %>" data-slide-to="0" class="active"></li>
+
+
     <% _(allPics.attributes).each(function(pic, index) { %>
-      <li data-target="#<%= styleId %>" data-slide-to="<%= index + 1 %>"></li>
+      <% if (index === "0") { %>
+        <li data-target="#<%= styleId %>" data-slide-to="<%= index %>" class="active"></li>
+      <% } else { %>
+        <li data-target="#<%= styleId %>" data-slide-to="<%= index %>"></li>
+      <% } %>
     <% }) %>
+
   </ol>
 
   <!-- Wrapper for slides -->
