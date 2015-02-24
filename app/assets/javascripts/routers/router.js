@@ -38,7 +38,7 @@ Final.Routers.Router = Backbone.Router.extend({
   makesShow: function(name) {
     this["pane3"].removeClass('on-screen');
     this["pane3"].addClass('off-screen');
-    
+
     var carModels = new Final.Collections.Models([], {
       makeName : name
     });
@@ -80,13 +80,9 @@ Final.Routers.Router = Backbone.Router.extend({
       model: that.currentCar
     })
     this._swapView(view);
-    console.log(this.currentCar)
   },
 
   _swapPane: function(paneName, view) {
-    // this[paneName].removeClass('on-screen');
-    // this[paneName].addClass('off-screen');
-
     this._currentView && this._currentView.remove();
     for (var i = 1; i <= 3; i++) {
       var name = "pane" + i;
@@ -144,6 +140,5 @@ Final.Routers.Router = Backbone.Router.extend({
       collection: myCars
     });
     this._swapView(view);
-    //render stuff
   }
 })
