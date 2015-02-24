@@ -13,21 +13,4 @@ Final.Collections.Models = Backbone.Collection.extend({
   parse: function(response) {
     return response.models;
   }
-
-  // getOrFetch: function(id) {
-  //   var models = this;
-  //   var model = this.get(id);
-  //   if(model) {
-  //     model.fetch();
-  //   } else {
-  //     model = new Final.Models.Model({ id: id });
-  //     model.fetch({
-  //       success: function() {
-  //         models.add(model)
-  //       }
-  //     })
-  //   }
-  //   return model;
-  // }
-
 });

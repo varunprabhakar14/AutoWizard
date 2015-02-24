@@ -11,10 +11,6 @@ Final.Collections.AllFeatures = Backbone.Collection.extend({
   },
 
   parse: function(response) {
-    // var that = this;
-    // _(response.options).each(function(el) {
-    //   that.features[el.id] = {"name": el.name, "description": el.description, "category": el.category, "baseMSRP": el.price.baseMSRP}
-    // })
     return response.options;
   }
 })

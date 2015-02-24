@@ -1,26 +1,26 @@
 <div class="sign-up-log-in">
 
-<header>
-  <h1>Sign Up</h1>
+  <header>
+    <h1 class="auto-wizard">Sign Up</h1>
 
-  <form action="/users" method="post">
-    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+    <form action="/users" method="post">
+      <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
 
-    <div class="form-group">
-      <label>Username<br>
-        <input class="user-input" name="user[username]" type="text"><br>
-      </label>
-    </div>
+      <div class="form-group">
+        <label>Username<br>
+          <input class="user-input" name="user[username]" type="text"><br>
+        </label>
+      </div>
 
-    <div class="form-group">
-      <label>Password<br>
-        <input class="user-input" name="user[password]" type="password"><br>
-      </label>
-    </div>
+      <div class="form-group">
+        <label>Password<br>
+          <input class="user-input" name="user[password]" type="password"><br>
+        </label>
+      </div>
 
-    <input type="submit" value="Submit" class="btn btn-primary"><br>
-  </form>
-</header>
+      <input type="submit" value="Submit" class="btn btn-primary"><br>
+    </form>
+  </header>
 
   <div class="wrapper">
     <div class="screen" data-video="/assets/bmw_commercial.mp4">

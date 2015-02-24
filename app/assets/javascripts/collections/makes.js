@@ -5,22 +5,6 @@ Final.Collections.Makes = Backbone.Collection.extend({
   parse: function(response) {
     return response.makes;
   }
-
-  // getOrFetch: function(id) {
-  //   var makes = this;
-  //   var make = this.get(id);
-  //   if(make) {
-  //     make.fetch();
-  //   } else {
-  //     make = new Final.Models.Make({ id: id });
-  //     make.fetch({
-  //       success: function() {
-  //         makes.add(make)
-  //       }
-  //     })
-  //   }
-  //   return make;
-  // }
 });
 
 Final.Collections.makes = new Final.Collections.Makes();
