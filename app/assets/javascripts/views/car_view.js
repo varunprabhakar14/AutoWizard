@@ -27,16 +27,6 @@ Final.Views.CarView = Backbone.View.extend({
     var styleId = this.model.get('trim_number');
     var AllPics = Backbone.Model.extend({
       url: 'https://api.edmunds.com/v1/api/vehiclephoto/service/findphotosbystyleid?styleId=' + styleId + '&fmt=json&api_key=u79wmp7tc5htfw2c2m6wfvdm',
-
-      // parse: function(response) {
-      //   var arr = [];
-      //   _(response).each(function(el) {
-      //     if(el.subType === 'exterior') {
-      //       arr.push(el)
-      //     }
-      //   })
-      //   return arr;
-      // }
     });
 
     //rendering carousel
