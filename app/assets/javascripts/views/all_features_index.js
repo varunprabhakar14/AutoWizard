@@ -16,10 +16,15 @@ Final.Views.AllFeaturesIndex = Backbone.View.extend({
     this.$el.empty();
     var eachCategory = this.orderByCategory();
     var that = this;
+    var no_additional_features = true
     _(eachCategory).each(function(values, category) {
+      no_additional_features = false
       var content = that.template({values: values, category: category})
       that.$el.append(content);
     })
+    if(no_additional_features) {
+      this.$el.append("No Additional Features for this car. Click Save Car to continue!<br>")
+    }
     this.$el.append(this.saveCarButton);
     return this;
   },
